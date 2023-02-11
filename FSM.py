@@ -7,10 +7,15 @@ class FSM:
         self.handlers = {}
         self.state_stack =[]
 
-    def push_state (self,state)
-        self.state_stack.
+    def push_state(self, name):
+        self.state_stack.append(self.activeState)
+        self.activeState = self.handlers[name]
+        self.activeState()
 
-        
+    def pop_state(self):
+        self.activeState = self.state_stack.pop()
+        self.activeState()
+
     def add_state(self, name, handler):
         self.handlers[name] = handler
 
